@@ -37,9 +37,7 @@ def do_menu_choice(menu, item):
 def do_icon_choice(icon_choice):
     if not harmless_click_to_focus():
         return False
-    if not tk.wait_and_click(icon_choice):
-        return False
-    return True
+    return bool(tk.wait_and_click(icon_choice))
 
 def check_synapse_is_drawn_correctly(weight, model, drawn_synapse):
     select_weight_combobox(int(weight))
@@ -57,10 +55,10 @@ def select_module_combobox(page, option):
     tk.click(1411, 67)
     time.sleep(0.5)
     # go to first page
-    for i in range(2):
+    for _ in range(2):
         tk.click(1460, 103)
     # go to correct page
-    for i in range(page):
+    for _ in range(page):
         tk.click(1460, 420)
     tk.click(1411, ys[option])
     
@@ -84,10 +82,10 @@ def insert_module(page, index):
 
 def select_module(page, screenshot):
     # go to first page
-    for i in range(2):
+    for _ in range(2):
         tk.click(365, 350)
     # go to correct page
-    for i in range(page):
+    for _ in range(page):
         tk.click(365, 670)
     if not tk.wait_and_click(screenshot):
         result = False  

@@ -19,9 +19,7 @@ def _scr(fragname):
 
 def is_screen_size_correct():
     screenWidth, screenHeight = pyautogui.size()
-    if screenWidth != 1920 or screenHeight != 1080:
-        return False
-    return True
+    return screenWidth == 1920 and screenHeight == 1080
 
 def locate_center(screen_frag):
     try:
